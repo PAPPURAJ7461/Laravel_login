@@ -38,7 +38,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                
+                 @if (Session::has('message'))
+                   <div class="alert {{ Session::get('class') }}">{{ Session::get('message')  }}
+                   </div>
+                 @endif 
                  <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
@@ -66,9 +69,23 @@
                             @endif
                           </td>
                           <td>
-                          <button type="button" class="btn btn-dark"><i class="fas fa-eye"></i></button>
-                          <button type="button" class="btn btn-info"><i class="fas fa-pencil-alt"></i></button>
-                          <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                          <a href="cetegory_view?id={{$result->id }}" class="btn btn-dark"><i class="fas fa-eye"></i></a>
+                          <a href="cetegory_edit?id={{$result->id }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                          <a href="#" onclick="myFunction()" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                          <script>
+                          function myFunction() {
+                           
+                          if (confirm("Are You sure want to delete?") == true) 
+                             {
+                             window.location="delete_cetegory?id={{$result->id}}"; 
+                             } 
+                             else 
+                             {
+                             window.location="cetegory_list";
+                             }
+                          
+                          }
+                          </script>
                           </td>
                           </tr>
                                    

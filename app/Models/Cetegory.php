@@ -25,4 +25,41 @@ class Cetegory extends Model
         
         return $value;
    }
+    function viewData($data)
+   {
+        $value=DB::table('cetegories')->where('id', $data)->get();
+        return $value;
+   }
+   function updatedata($data)
+   {
+        
+        $value=DB::table('cetegories')->where('id', $data['id'])->update(
+          [
+            'name'     => $data['name'],
+            'status'   => $data['status']  
+          ]);
+
+        if($value)
+        {
+          return 1;
+        }
+        else
+        {
+         return 0;
+        }
+        
+     }
+     
+     function trashcetegory($data)
+     {
+      $value = DB::table('cetegories')->where('id', $data)->delete();
+       if($value)
+       {
+          return 1;
+       }
+       else
+       {
+         return 0;
+       }
+     } 
 }

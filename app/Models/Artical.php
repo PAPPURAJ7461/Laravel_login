@@ -37,6 +37,7 @@ class Artical extends Model
         $value=DB::table('artical')->where('id', $data['id'])->update(
           [
             'Name'     => $data['Name'],
+            'Status'     => $data['Status'],
             'cetegory' => $data['cetegory'],
             'content'  => $data['content']
           ]);
@@ -50,7 +51,19 @@ class Artical extends Model
          return 0;
         }
         
-   }
-      
+     }
+     
+     function trashartical($data)
+     {
+      $user = DB::table('artical')->where('id', $data)->delete();
+       if( $user)
+       {
+          return 1;
+       }
+       else
+       {
+        return 0;
+       }
+     } 
     
 }

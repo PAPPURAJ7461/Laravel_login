@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Artical</h1>
+            <h1>Add Cetegory</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-              <li class="breadcrumb-item active">View Artical</li>
+              <li class="breadcrumb-item active">Add cetegory</li>
             </ol>
           </div>
         </div>
@@ -30,49 +30,34 @@
           <div class="col-md-12">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Compose New Artical</h3>
-                  <div class="float-right">            
-                   <a href="artical_list" class="btn btn-success btn-sm">Back To  Artical_list</a> 
+                <h3 class="card-title">Compose New Cetegory</h3>
+                 <div class="float-right">            
+                   <a href="cetegory_list" class="btn btn-success btn-sm">Back to Cetegory List</a> 
                 </div>
               </div>
-               
               <!-- /.card-header -->
-              <div class="card-body">         
-                   @if (Session::has('message'))
+              <div class="card-body">
+                 @if (Session::has('message'))
                    <div class="alert {{ Session::get('class') }}">{{ Session::get('message')  }}
                    </div>
                  @endif 
-                <form method="post" action="artical_update">
+                <form method="post" action="cetegory_update">
                   @csrf
-                  <input  type="hidden" name="id"  value="{{  $data['viewdata']['0']->id}}" >
+                   <input type="hidden" name="id" value="{{ $viewdata['0']->id}}">
                 <div class="form-group">
-                  <input class="form-control" name="artical_name" placeholder="Artical Name" value="{{ $data['viewdata']['0']->Name}}">
-                   @if (count($errors) > 0)       
-                       @foreach ($errors->get('artical_name') as $error)
+                <input class="form-control" name="cetegory_name" value="{{ $viewdata['0']->name}}">
+                  @if (count($errors) > 0)       
+                       @foreach ($errors->get('cetegory_name') as $error)
                           <p class="text-danger">{{ $error }}</p>
                        @endforeach        
                   @endif
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="author" value="{{  $data['viewdata']['0']->Author}}" readonly>
+                  <input class="form-control" value="{{ $viewdata['0']->author}}" readonly>
                 </div>
-                 <div class="form-group">
-                  <select class="form-control" name="cetegory">
-
-                    @if(count($data['cetegory'])> 0 )
-                        <option>select Cetegory</option>
-                        @foreach($data['cetegory'] as $result) 
-                        @if($result->status=='1')                    
-                        <option>{{$result->name}}</option>
-                        @endif
-                        @endforeach
-              
-                    @endif
-                  </select>          
-                 </div>
                  <div class="form-group">               
                   <select class="form-control" name="status">
-                   @if($data['viewdata']['0']->Status)
+                   @if($viewdata['0']->status)
                     <option>1</option>
                     <option>0</option>
                     @else
@@ -81,32 +66,20 @@
                    @endif
                   </select>
                 </div>
-                <div class="form-group">
-                    @if (count($errors) > 0)       
-                       @foreach ($errors->get('artical_content') as $error)
-                          <p class="text-danger">{{ $error }}</p>
-                       @endforeach        
-                  @endif
-                    <textarea id="compose-textarea" class="form-control" style="height:600px" name="artical_content">
-                     {{ $data['viewdata']['0']->content}}
-                    </textarea>
-                </div>
-             
+                        
               </div>
               <!-- /.card-body -->
                <div class="card-footer">
-                <div class="float-right">
-                
-                  <button type="submit" class="btn btn-dark">Update</button>
+                <div class="float-right">            
+                  <button type="submit" class="btn btn-dark">update</button>
                 </div>
-                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Discard</button>
+                </form>
               </div>
               <!-- /.card-footer -->
-              </form>
             </div>
             <!-- /.card -->
           </div>
-        
+         
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

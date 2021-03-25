@@ -40,12 +40,15 @@ Route::get('/artical_list',[App\Http\Controllers\ArticalController::class,'artic
 Route::get('/view_artical',[App\Http\Controllers\ArticalController::class,'view_artical']);
 Route::get('/edit_artical',[App\Http\Controllers\ArticalController::class,'edit_artical']);
 Route::post('/artical_update',[App\Http\Controllers\ArticalController::class,'artical_update']);
-Route::get('/artical_list',[App\Http\Controllers\ArticalController::class,'artical_list']);
+Route::get('/delete_artical',[App\Http\Controllers\ArticalController::class,'delete_artical']);
 Route::get('/add_artical',[App\Http\Controllers\ArticalController::class,'add_artical']);
 Route::post('/arical_save',[App\Http\Controllers\ArticalController::class,'artical_save']);
 Route::any('/cetegory_list',[App\Http\Controllers\CetegoryController::class,'cetegory_list']);
 Route::any('/add_cetegory',[App\Http\Controllers\CetegoryController::class,'add_cetegory']);
 Route::post('/cetegory_save',[App\Http\Controllers\CetegoryController::class,'cetegory_save']);
-
+Route::any('/cetegory_view',[App\Http\Controllers\CetegoryController::class,'cetegory_view']);
+Route::any('/cetegory_edit',[App\Http\Controllers\CetegoryController::class,'cetegory_edit']);
+Route::any('/cetegory_update',[App\Http\Controllers\CetegoryController::class,'cetegory_update']);
+Route::any('/delete_cetegory',[App\Http\Controllers\CetegoryController::class,'delete_cetegory']);
 
 });

@@ -93,7 +93,7 @@ class ArticalController extends Controller
             'Name'=>$request->post('artical_name'),
             'Author'=>$request->post('author'),
             'cetegory'=>$request->post('cetegory'),
-            'Status'=>1,
+            'Status'=>$request->post('status'),
             'content'=>$request->post('artical_content')
         ];
 
@@ -115,5 +115,24 @@ class ArticalController extends Controller
        
      }
 
+     function delete_artical(Request $request)
+    {
+       
+       $articaldata= new Artical;
+       $result= $articaldata->trashartical($request->get('id'));
+       if($result)
+       {
+        Session::flash('message', "Your Artical has been successfully deleted.");
+        Session::flash('class', "alert-success");
+        return redirect()->back();
+       }
+       else
+       {
 
+        Session::flash('message', "sorry your data are not able to delete.");
+        Session::flash('class', "alert-danger");
+        return redirect()->back();
+       }
+      
+    }
 }

@@ -181,18 +181,7 @@ to get the desired effect
                   <p>Add Artical</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Update Artical</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Delete Artical</p>
-                </a>
-              </li>                         
+                                           
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -216,18 +205,7 @@ to get the desired effect
                   <p>Add  Cetegory</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Update  Cetegory</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Delete  Cetegory</p>
-                </a>
-              </li>
+                        
             </ul>
           </li>
               
