@@ -17,6 +17,22 @@ use App\Http\Controllers;
 Route::get('/', function () {
 return view('welcome');
 });
+Route::get('/home', function () {
+return view('welcome');
+});
+Route::get('/blog', function () {
+return view('Blog');
+});
+Route::get('/contact_us', function () {
+return view('contact_us');
+});
+Route::get('/about_us', function () {
+return view('About_us');
+});
+Route::get('/blog_post', function () {
+return view('Blog_post');
+});
+
 Route::get('/login1', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/sign_up',[App\Http\Controllers\UserController::class, 'signup']);
 Route::post('/auth',[App\Http\Controllers\UserController::class, 'authenticate']);
@@ -29,7 +45,7 @@ Session::flash('class', "alert-success");
 return redirect('login1');
 });
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('#', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 Route::post('/register',[App\Http\Controllers\UserController::class, 'register']);
 
